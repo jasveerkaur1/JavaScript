@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<head>
+<script>
+var app =angular.module("myApp",[]);
+app.controller("controll1",function ($scope){
+    $scope.handleclick = function(msg){
+        $scope.$broadcast('eventName', {message:msg });
+    };
+});
+app.controller("controll2",function ($scope){
+    $scope.$on('eventName',function (event,args){
+        $scope.message = args.message;
+        console.log($scope.message);
+    });
+});
+
+
+
+</script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="controll1" style="border:2px solid #E75D5c; padding:5px;">
+    <h2>Parent controller</h2>
+    <input ng-model="msg">
+    <button ng-click ="handleclick(msg);">Broadcast</button>
+    <div ng-controller ="controll2" style="border:2px solid #428bca; padding:5px;">
+            <h2>child Controller</h2>
+            <p>Broadcast Massage:{{message}}</p>
+            <br />
+    </div>    
+</div>
+</body>
+</html>

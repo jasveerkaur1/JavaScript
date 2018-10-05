@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+      <link rel="stylesheet"  href="employeecss.css">
+    </head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<body>
+<div ng-controller="mycontroll">
+<table>
+<tr>
+<th>firstname</th>
+<th>lastname</th>
+<th>id</th>
+<th>Email</th>
+<th>Gender</th>
+<th>City</th>
+<th>Age</th>
+</tr>
+<tr ng-repeat="entry"><td>{{$index + 1}}</td>
+<td>{{entry.firstname}}</td>
+<td>{{entry.lastname}}</td>
+<td>{{entry.id}}</td>
+<td>{{entry.email}}</td>
+<td>{{entry.gender}}</td>
+<td>{{entry.city}}</td>
+<td>{{entry.age}}</td>
+</tr>
+<table>
+<form></form>
+Name:<input type="text" ng-model="newdata.name" required>
+</body>
+</html>
